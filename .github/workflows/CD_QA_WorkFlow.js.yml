@@ -49,18 +49,18 @@ jobs:
         echo PORT=8003 >> .env
         cat .env
 
-    # - name: Generate deployment package
-    #   run: |
-    #     zip -r deploy.zip . -x '*.git*'
-    # - name: Deploy on Elastic beanstalk QA env
-    #   uses: einaregilsson/beanstalk-deploy@v20
-    #   with:
-    #     aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-    #     aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    #     application_name: microservice-w-cicd
-    #     environment_name: Microservice-w-cicd-env
-    #     version_label: "ver-${{ github.sha }}"
-    #     region: eu-central-1
-    #     deployment_package: deploy.zip
+    - name: Generate deployment package
+      run: |
+        zip -r deploy.zip . -x '*.git*'
+    - name: Deploy on Elastic beanstalk QA env
+      uses: einaregilsson/beanstalk-deploy@v20
+      with:
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        application_name: microservice-w-cicd
+        environment_name: Microservice-w-cicd-env
+        version_label: "ver-${{ github.sha }}"
+        region: eu-central-1
+        deployment_package: deploy.zip
         
       
