@@ -45,7 +45,6 @@ jobs:
         echo EXCHANGE_NAME={{ secrets.QA_EXCHANGE_NAME }} >> .env
         echo PORT=8003 >> .env
         cat .env
-
     - name: Generate deployment package
       run: |
         zip -r deploy.zip . -x '*.git*'
