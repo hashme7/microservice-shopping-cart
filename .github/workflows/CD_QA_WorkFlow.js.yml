@@ -62,4 +62,3 @@ jobs:
         region: eu-central-1
         deployment_package: deploy.zip
         
-      
