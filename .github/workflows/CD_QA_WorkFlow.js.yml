@@ -35,7 +35,7 @@ jobs:
         echo EXCHANGE_NAME={{ secrets.QA_EXCHANGE_NAME }} >> .env
         echo PORT=8001 >> .env
         cat .env  
-        
+       
     - name: Create Shopping Env file
       working-directory: ./shopping
       run: |
