@@ -11,7 +11,6 @@ jobs:
   deploy_on_qa:
 
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout Source Code
       uses: actions/checkout@v3
