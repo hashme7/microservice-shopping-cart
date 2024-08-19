@@ -20,10 +20,10 @@ jobs:
       working-directory: ./products
       run: |
         touch .env
-        echo APP_SECRET=micro-secret >> .env
-        echo MONGO_URL=mongodb://nosql-db/msytt_product >> .env
-        echo MSG_QUEUE_URL=amqp://rabbitmq:5672 >> .env
-        echo EXCHANGE_NAME=ONLINE_STORE >> .env
+        echo APP_SECRET={{ secrets.QA_APP_SECRET }} >> .env
+        echo MONGO_URL={{ secrets.QA_PRODUCT_MONGO_URL }} >> .env
+        echo MSG_QUEUE_URL={{ secrets.QA_MSG_QUEUE_URL }} >> .env
+        echo EXCHANGE_NAME={{ secrets.QA_EXCHANGE_NAME }} >> .env
         echo PORT=8002 >> .env
         cat .env
         
@@ -31,10 +31,10 @@ jobs:
       working-directory: ./customer
       run: |
         touch .env
-        echo APP_SECRET=micro-secret >> .env
-        echo MONGO_URL=mongodb://nosql-db/msytt_customer >> .env
-        echo MSG_QUEUE_URL=amqp://rabbitmq:5672 >> .env
-        echo EXCHANGE_NAME=ONLINE_STORE >> .env
+        echo APP_SECRET={{ secrets.QA_APP_SECRET }} >> .env
+        echo MONGO_URL={{ secrets.QA_CUSTOMER_MONGO_URL }} >> .env
+        echo MSG_QUEUE_URL={{ secrets.QA_MSG_QUEUE_URL }} >> .env
+        echo EXCHANGE_NAME={{ secrets.QA_EXCHANGE_NAME }} >> .env
         echo PORT=8001 >> .env
         cat .env  
         
@@ -42,10 +42,10 @@ jobs:
       working-directory: ./shopping
       run: |
         touch .env
-        echo APP_SECRET=micro-secret >> .env
-        echo MONGO_URL=mongodb://nosql-db/msytt_shopping >> .env
-        echo MSG_QUEUE_URL=amqp://rabbitmq:5672 >> .env
-        echo EXCHANGE_NAME=ONLINE_STORE >> .env
+        echo APP_SECRET={{ secrets.QA_APP_SECRET }} >> .env
+        echo MONGO_URL={{ secrets.QA_SHOPPING_MONGO_URL }} >> .env
+        echo MSG_QUEUE_URL={{ secrets.QA_MSG_QUEUE_URL }} >> .env
+        echo EXCHANGE_NAME={{ secrets.QA_EXCHANGE_NAME }} >> .env
         echo PORT=8003 >> .env
         cat .env
 
